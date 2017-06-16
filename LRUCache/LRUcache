@@ -1,0 +1,110 @@
+/* LRU cache is implemented using a user-defined doubly linked list and a 
+hashMap<key, node_ref>. HashMap helps in get and put operations of linkedlist 
+in constant time. The new elements are appended to the list and the referenced 
+nodes are marked as 'recently used' by removing the node and moving it to the 
+end of the list. Hence only the Least Recently Used(LRU) elements are present 
+at the head of the list, and in the case where the cache is full, the head of 
+the list is eliminated to accomodate the new element.
+*/
+
+
+public class LRUCache {
+/* Need to implement LinkedList as you need to store the reference of the nodes 
+	in the hashmap. Library LinkedList doesnt allow you to capture the refernce 
+	in O(1) operation.
+*/
+    private class ListNode {      //user-defined LinkedList
+        ListNode prev;
+        ListNode next;
+        int key, value;
+        public ListNode(int key, int val) {
+            this.key = key;
+            this.value = val;
+        }
+    }
+    HashMap<Integer, ListNode> map; //HashMap to store the key and the node ref
+    int capacity = 0, size = 0;
+    ListNode head, tail;
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        map = new HashMap<Integer, ListNode>();
+        head = new ListNode(0,0);
+        tail = new ListNode(0,0);
+        head.next = tail;
+        tail.prev = head;
+        head.prev = null;
+        tail.next = null;
+    }
+    
+    public int get(int key) {    //retrieve the value from the LRU cache
+        if (map.containsKey(key)) {
+            ListNode temp = map.get(key);
+            moveEnd(temp);    //mark the node as recently used
+            return temp.value;
+        }
+        return -1;
+    }
+    
+    public void put(int key, int value) { //add a new element in the LRU cache
+        if (map.containsKey(key)) {  //key already present
+            ListNode temp = map.get(key);
+            if (temp.value == value) { 
+/* mark the element as recently used if the value is the same as the one 
+already present, else update the value in the list */
+                moveEnd(temp);
+            } else {
+                remove(key ,value);
+                add(key, value);
+            }
+            return;
+        }
+        if (size == capacity) {  
+		//remove the LRU element to accomodate the new key-value pair
+            remove();
+        }
+        add(key, value); //adding the new key-value pair
+        return;
+    }
+    private void remove(int key, int value) { //remove to update the value
+        ListNode temp = map.get(key);
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+        map.remove(key);
+        --size;
+    }
+    private void moveEnd(ListNode n) { //mark element as recently used
+        ListNode temp = n. prev;
+        n.next.prev = temp;
+        temp.next = n.next;
+        n.prev = tail.prev;
+        tail.prev.next = n;
+        n.next = tail;
+        tail.prev = n;
+        map.put(n.key, n);
+    }
+    private void remove() { //remove the LRU element
+        map.remove(head.next.key);
+        ListNode temp = head.next.next;
+        head.next = temp;
+        temp.prev = head;
+        --size;
+    }
+    private void add(int key, int value) { //adding the element.
+        ListNode newNode = new ListNode(key, value);
+        ListNode temp = tail.prev;
+        temp.next = newNode;
+        newNode.prev = temp;
+        newNode.next = tail;
+        tail.prev = newNode;
+        map.put(key, newNode);
+        ++size;
+    }   
+        
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
