@@ -67,26 +67,33 @@ So, we use the same idea to find the specific area's sum.
 public class NumMatrix {
     private int[][] sumRegion;
 
-public NumMatrix(int[][] matrix) {
-    if (matrix == null || matrix.length == 0) {
-        return;
-    }
-    sumRegion = new int[matrix.length + 1][matrix[0].length + 1];
-    for (int i = 1; i < sumRegion.length; ++i) {
-        for (int j = 1; j < sumRegion[0].length; ++j) {
+    public NumMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return;
+        }
+        sumRegion = new int[matrix.length + 1][matrix[0].length + 1];
+        for (int i = 1; i < sumRegion.length; ++i) {
+            for (int j = 1; j < sumRegion[0].length; ++j) {
                 sumRegion[i][j] = matrix[i - 1][j - 1] + sumRegion[i][j - 1] + 
 				sumRegion[i - 1][j] - sumRegion[i - 1][j - 1];
                 /* you subtract the last region as that region is already added 
 				twice by the frist 2 sumRegions */
+            }
         }
+    }
+
+    public int sumRegion(int row1, int col1, int row2, int col2) {
+        return sumRegion[row2 + 1][col2 + 1] - sumRegion[row2 + 1][col1] - 
+		sumRegion[row1][col2 + 1] + sumRegion[row1][col1];
     }
 }
 
-public int sumRegion(int row1, int col1, int row2, int col2) {
-    return sumRegion[row2 + 1][col2 + 1] - sumRegion[row2 + 1][col1] - 
-	sumRegion[row1][col2 + 1] + sumRegion[row1][col1];
-}
-}
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * NumMatrix obj = new NumMatrix(matrix);
+ * int param_1 = obj.sumRegion(row1,col1,row2,col2);
+ */
 
 
 /**

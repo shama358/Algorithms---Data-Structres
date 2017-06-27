@@ -12,38 +12,38 @@ number of same value the collection contains.
 
 
 public class RandomizedCollection {
-    HashMap<Integer, HashMap<Integer, Integer>> map;   
-	//key ->val value->value HashMap
-    ArrayList<Integer> arr;
-    
+    HashMap < Integer, HashMap < Integer, Integer >> map;
+    //key ->val value->value HashMap
+    ArrayList < Integer > arr;
+
     /** Initialize your data structure here. */
     public RandomizedCollection() {
-        map = new HashMap<Integer, HashMap<Integer, Integer>>();
-        arr = new ArrayList<Integer>();
+        map = new HashMap < Integer, HashMap < Integer, Integer >> ();
+        arr = new ArrayList < Integer > ();
     }
-    
+
     /** Inserts a value to the collection. Returns true if the collection did 
 	not already contain the specified element. */
     public boolean insert(int val) {
-        if(map.containsKey(val)) {
-            HashMap<Integer, Integer> value =  map.get(val);    
-			// key -> #times value-> arr.size()
+        if (map.containsKey(val)) {
+            HashMap < Integer, Integer > value = map.get(val);
+            // key -> #times value-> arr.size()
             value.put(value.size() + 1, arr.size());
             arr.add(val);
             return false;
         }
-        HashMap<Integer, Integer> value =  new HashMap <Integer,  Integer>();
-        value.put(1,arr.size());
+        HashMap < Integer, Integer > value = new HashMap < Integer, Integer > ();
+        value.put(1, arr.size());
         map.put(val, value);
         arr.add(val);
         return true;
     }
-    
+
     /** Removes a value from the collection. Returns true if the collection 
 	contained the specified element. */
     public boolean remove(int val) {
-        if(map.containsKey(val)) {
-            HashMap<Integer, Integer> value = map.get(val);
+        if (map.containsKey(val)) {
+            HashMap < Integer, Integer > value = map.get(val);
             removeArr(value.get(value.size()));
             if (map.get(val).size() == 1) {
                 map.remove(val);
@@ -59,7 +59,7 @@ public class RandomizedCollection {
         arr.remove(arr.size() - 1);
         arr.trimToSize();
     }
-    
+
     /** Get a random element from the collection. */
     public int getRandom() {
         if (arr.size() == 0) {
@@ -67,7 +67,7 @@ public class RandomizedCollection {
         }
         Random randomIdx = new Random();
         int n = randomIdx.nextInt(arr.size());
-        return (int)arr.get(n);
+        return (int) arr.get(n);
     }
 }
 

@@ -15,30 +15,36 @@ public class Solution {
             return 0;
         }
         Stack intStack = new Stack();
-        int sum = 0,a = 0, b = 0;
+        int sum = 0, a = 0, b = 0;
         for (int i = 0; i < tokens.length; ++i) {
-		/* push tokens into the stack if the current token is a number else pop */
-            if (tokens[i].equals("+") || tokens[i].equals("*") || 
-			tokens[i].equals("/") || tokens[i].equals("-")) {
-                b = (Integer)intStack.pop();
-                a = (Integer)intStack.pop();
+            /* push tokens into the stack if the current token is a number else 
+            pop */
+            if (tokens[i].equals("+") || tokens[i].equals("*") ||
+                tokens[i].equals("/") || tokens[i].equals("-")) {
+                b = (Integer) intStack.pop();
+                a = (Integer) intStack.pop();
                 String operator = tokens[i];
-                switch(operator) {
-                    case "*" : sum = a * b;
-                                break;
-                    case "+" : sum = a + b;
-                                break;
-                    case "/" : sum = a / b;
-                                break;
-                    case "-" : sum = a - b;
-                                break;
-                    default : break;
+                switch (operator) {
+                    case "*":
+                        sum = a * b;
+                        break;
+                    case "+":
+                        sum = a + b;
+                        break;
+                    case "/":
+                        sum = a / b;
+                        break;
+                    case "-":
+                        sum = a - b;
+                        break;
+                    default:
+                        break;
                 }
                 intStack.push(sum);
             } else {
                 intStack.push(Integer.parseInt(tokens[i]));
             }
         }
-        return (Integer)intStack.pop();
+        return (Integer) intStack.pop();
     }
 }

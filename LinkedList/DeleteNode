@@ -8,7 +8,7 @@
  */
 public class DeleteNode {
     public void deleteSingleNode(ListNode node) {
-        node.val = node.next.val;      //removing the reference to the current node.
+        node.val = node.next.val;  //removing the reference to the current node.
         node.next = node.next.next;
         return;
     }

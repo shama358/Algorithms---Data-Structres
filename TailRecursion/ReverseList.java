@@ -15,16 +15,16 @@ Reverse a singly linked list.
 public class Solution {
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
-			//Early termination incase the List has 0 or 1 node
+            //Early termination incase the List has 0 or 1 node
             return head;
         }
-        ListNode nextNode = head.next;    //A node referencing the next node
+        ListNode nextNode = head.next; //A node referencing the next node
         head.next = null;
         return reverseList(head, nextNode);
     }
-    public ListNode reverseList(ListNode head, ListNode curr) { 
-			//Tail recursive function to reverse the references of the nodes.
-        if (curr == null) { 
+    public ListNode reverseList(ListNode head, ListNode curr) {
+        //Tail recursive function to reverse the references of the nodes.
+        if (curr == null) {
             return head;
         }
         ListNode nextToNext = curr.next;

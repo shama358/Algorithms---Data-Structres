@@ -35,11 +35,11 @@ public class Solution {
         if (root.left == null && root.right == null) {
             return null;
         }
-        return LCARec(root, p , q);
-        
+        return LCARec(root, p, q);
+
     }
     private TreeNode LCARec(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) {  //early exit
+        if (root == null) { //early exit
             return null;
         }
         if (root == p || root == q) {
@@ -56,7 +56,7 @@ public class Solution {
                 return right;
             }
         } else
-        return null;
-        
+            return null;
+
     }
 }
