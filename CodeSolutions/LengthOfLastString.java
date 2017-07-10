@@ -5,7 +5,8 @@ characters ' ', return the length of last word in the string.
 
 If the last word does not exist, return 0.
 
-Note: A word is defined as a character sequence consists of non-space characters only.
+Note: A word is defined as a character sequence consists of non-space characters 
+only.
 
 For example, 
 Given s = "Hello World",
@@ -19,7 +20,8 @@ public class Solution {
             return 0;
         }
         int count = 0;
-		//Start from the end of string and count till the begining with the last word.
+		//Start from the end of string and count till the begining with the last 
+		word.
         for (int i = s.length() - 1; i >= 0; --i) {
             if (s.charAt(i) != ' ') {
                 ++count;
