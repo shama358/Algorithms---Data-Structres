@@ -1,4 +1,5 @@
 /* Question
+
 Given a binary tree, return the inorder traversal of its nodes' values.
 
 For example:
@@ -21,6 +22,7 @@ return [1,3,2].
  *     TreeNode(int x) { val = x; }
  * }
  */
+
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         //contains the result

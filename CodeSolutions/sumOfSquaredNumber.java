@@ -1,4 +1,5 @@
 /* Question
+
 Given a non-negative integer c, your task is to decide whether there're two 
 integers a and b such that a2 + b2 = c.
 
@@ -14,8 +15,7 @@ Output: False
 */
 
 
-
-public class Solution {
+ public class Solution {
     public boolean judgeSquareSum(int c) {
         int a = (int)Math.sqrt(c);
         int b = 0;

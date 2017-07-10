@@ -1,4 +1,4 @@
-/* Question:
+﻿/* Question:
 
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
 
@@ -16,7 +16,6 @@ For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another exa
 */
 
 
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -26,6 +25,7 @@ For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another exa
  *     TreeNode(int x) { val = x; }
  * }
  */
+
 public class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         //early exists

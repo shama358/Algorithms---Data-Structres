@@ -1,4 +1,5 @@
 /*Question
+
 You are given two integer arrays nums1 and nums2 sorted in ascending order and 
 an integer k.
 
@@ -14,7 +15,6 @@ Return: [1,2],[1,4],[1,6]
 
 The first 3 pairs are returned from the sequence:
 [1,2],[1,4],[1,6],[7,2],[7,4],[11,2],[7,6],[11,4],[11,6]
-
 */
 
 

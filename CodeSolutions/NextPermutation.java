@@ -1,4 +1,5 @@
-/* Question
+﻿/* Question
+
 Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
 
 If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
@@ -25,6 +26,7 @@ swap the '1' at position 2 with '2' at position 7.
 *The last step is to make the remaining higher position part as small as possible, 
 we just have to reversely sort the num[i,n-1]
 */
+ 
 
 public class Solution {
     public void nextPermutation(int[] num) {

@@ -11,6 +11,7 @@ otherwise return -1.
 You may assume no duplicate exists in the array.
 */
 
+
 public class Solution {
     public int search(int[] nums, int target) {
         if (nums.length == 0) {

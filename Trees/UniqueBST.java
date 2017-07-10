@@ -13,6 +13,7 @@ Given n = 3, there are a total of 5 unique BST's.
    
 */
 
+
 public class Solution {
     public int numTrees(int n) {
         if (n < 1) {
