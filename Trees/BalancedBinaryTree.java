@@ -46,11 +46,11 @@ public class Solution {
         if (heightDiff == false) {
             return -1;
         } 
-		//if the heightDiff is less than equal to 1 then increment the height
+	//if the heightDiff is less than equal to 1 then increment the height
         return 1 + Math.max(leftHeight, rightHeight);
     }
     private boolean subtreeDiff(int left, int right) {
-		//check the height of left and right subtree
+	//check the height of left and right subtree
         if (Math.abs(left - right) <= 1) {
             return true;
         }

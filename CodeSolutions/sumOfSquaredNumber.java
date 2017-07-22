@@ -19,6 +19,7 @@ Output: False
     public boolean judgeSquareSum(int c) {
         int a = (int)Math.sqrt(c);
         int b = 0;
+	//check if a^2 + b^2 == c
         while (b <= a) {
             int product = (b * b) + (a * a);
             if (product < c) {

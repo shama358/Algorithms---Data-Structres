@@ -22,7 +22,7 @@ public class Solution {
             return nums[0];
         }
         int lo = 0, hi = nums.length - 1;
-		//target : the partion element must be kth largest.
+	//target : the partion element must be kth largest.
         while (lo < hi) {
             int n = partition(nums, lo, hi);
             if (n < k) {

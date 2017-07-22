@@ -20,8 +20,8 @@ public class Solution {
             return 0;
         }
         int count = 0;
-		//Start from the end of string and count till the begining with the last 
-		word.
+	/*Start from the end of string and count till the begining with the last 
+	 word. */
         for (int i = s.length() - 1; i >= 0; --i) {
             if (s.charAt(i) != ' ') {
                 ++count;

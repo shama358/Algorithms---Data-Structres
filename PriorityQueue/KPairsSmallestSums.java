@@ -24,9 +24,9 @@ public class Solution {
         if (nums1.length ==0 || nums2.length == 0 || k == 0) {
             return res;
         }
-		//PriorityQueue -minheap of size k 
-		PriorityQueue<int[]> pq = new PriorityQueue<int[]>
-            (Math.min(nums1.length, k), new Comparator<int[]>(){
+	//PriorityQueue -minheap of size k 
+	PriorityQueue<int[]> pq = new PriorityQueue<int[]>
+        (Math.min(nums1.length, k), new Comparator<int[]>(){
             public int compare(int[] pair1, int[] pair2) {
                 if (pair1[3] > pair2[3]){
                     return 1;
@@ -37,8 +37,8 @@ public class Solution {
                 }
             }
             });
-		/*add the pairs formed by using the first element of nums2 with k 
-		elements of nums1 in the minheap. */
+	/*add the pairs formed by using the first element of nums2 with k 
+	elements of nums1 in the minheap. */
         for (int i = 0; i < k && i <= nums1.length - 1; ++i) {
             pq.add(new int[]{nums1[i], nums2[0], 0, nums1[i] + nums2[0]});
         }
