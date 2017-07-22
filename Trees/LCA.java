@@ -28,13 +28,6 @@ For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another exa
 
 public class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        //early exists
-        if (root == null || p == null || q == null) {
-            return null;
-        }
-        if (root.left == null && root.right == null) {
-            return null;
-        }
         return LCARec(root, p, q);
 
     }
@@ -57,6 +50,5 @@ public class Solution {
             }
         } else
             return null;
-
     }
 }
