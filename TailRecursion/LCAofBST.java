@@ -42,8 +42,8 @@ public class Solution {
         } else if (p.val > root.val && q.val > root.val) {
             return LCARec(root.right, p, q);
         } else {
-            /*the current root will be the LCA if you p and q are in different 
-			subtrees.*/
+        /*the current root will be the LCA if you p and q are in different 
+	subtrees.*/
             return root;
         }
     }
