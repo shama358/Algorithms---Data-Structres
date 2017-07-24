@@ -43,7 +43,11 @@ public class Solution {
             return LCARec(root.right, p, q);
         } else {
         /*the current root will be the LCA if you p and q are in different 
+<<<<<<< HEAD
 		subtrees.*/
+=======
+	subtrees.*/
+>>>>>>> 4591ddcb430c27bad5888d26d8ed255780f1e580
             return root;
         }
     }
