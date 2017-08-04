@@ -31,7 +31,7 @@ public class Solution {
         if (root == null) {
             return true;
         }
-		//passing the root of left and right subtree
+	//passing the root of left and right subtree
         return isSymmetricRec(root.left, root.right);
     }
     private boolean isSymmetricRec(TreeNode rootL, TreeNode rootR) {
@@ -45,7 +45,7 @@ public class Solution {
         if (rootL.val != rootR.val) {
             return false;
         }
-		//returns true only if the left and right subtree are symmetric
+	//returns true only if the left and right subtree are symmetric
         return isSymmetricRec(rootL.left, rootR.right) && 
 		isSymmetricRec(rootL.right, rootR.left);
     }
