@@ -37,10 +37,10 @@ public class Solution {
             return new int[0];
         }
         prevPack p = new prevPack(0);
-		//arr stores the mode at that level
+	//arr stores the mode at that level
         ArrayList<Integer> arr = new ArrayList<Integer>();
         prevPack res = modeRec(root, p, arr);
-		//converting arraylist to an array
+	//converting arraylist to an array
         int[] result = new int[arr.size()];
         for (int i = 0; i < arr.size(); ++i) {
             result[i] = arr.get(i);
@@ -53,13 +53,13 @@ public class Solution {
             return p;
         }
         prevPack left = modeRec(root.left, p, arr);
-		//if root.val == prev.val, increament the count else set the count to 1.
+	//if root.val == prev.val, increament the count else set the count to 1.
         if (left.prev != null && left.prev.val == root.val) {
             ++left.count;
         } else {
             left.count = 1;
         }
-		//if count > max, clear arr and add root.val & max = count
+	//if count > max, clear arr and add root.val & max = count
         if (left.count > left.max) {
             left.max = left.count;
             if (!arr.isEmpty()) {
@@ -67,15 +67,15 @@ public class Solution {
             }
             arr.add(root.val);
         } else if (left.count == left.max) {
-		//if count == max then add root.val to arr 
+	//if count == max then add root.val to arr 
             arr.add(root.val);
         }
         left.prev = root;
         prevPack right = modeRec(root.right, left, arr);
         return right;
     }
-	/*inner class having the count, previous node and the max number of times a
-	value has occured till the current node. */
+    /*inner class having the count, previous node and the max number of times a
+    value has occured till the current node. */
     private class prevPack {
         int count;
         TreeNode prev;
