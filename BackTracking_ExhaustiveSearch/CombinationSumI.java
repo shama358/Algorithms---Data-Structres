@@ -24,12 +24,10 @@ public class Solution {
     }
     private void comboSumRec(int[] candidates, int target, List<List<Integer>> 
 	result, int sum, int idx, ArrayList<Integer> interRes) {
-        if (sum == target) {
-		
+        if (sum == target) {	
         /* since java is pass by value, the ref of the interRes will be passed. 
-		So you create a new Object with the original interRes elements and add 
-		that to result. */
-		
+	So you create a new Object with the original interRes elements and add 
+	that to result. */
             result.add(new ArrayList<Integer>(interRes));
             return;
         }
@@ -37,9 +35,9 @@ public class Solution {
             return;
         }
         /* for loop : the first postion can be filled in (candiate.length - 1) 
-		ways and so on for other positions as well.*/
-        /*the for loop is starting from idx as the combinations require not be 
-		repeated. so you ensure that by startng from the current     
+	ways and so on for other positions as well.
+        The for loop is starting from idx as the combinations require not be 
+	repeated. so you ensure that by startng from the current     
         position and not go to the left of the element.*/
         for (int i = idx; i < candidates.length; ++i) {
             int currNum = candidates[i];
