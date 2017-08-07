@@ -61,12 +61,12 @@ public class Solution {
         String letters = (String)map.get(digit[idx]);
         //for loop as the first position can be filled by multiple alphabets.
         for (int i = 0; i < letters.length(); ++i) {
-            /* populating a position and calling the func recursively to 
-			populate the remaininig positions. */
+            /*populating a position and calling the func recursively to 
+	    populate the remaininig positions. */
             letterComboRec(digit, map, result, idx + 1, interRes.append
 			(Character.toString(letters.charAt(i))));
             /* removing the last populated character to form a different 
-			combination. Basically a clean up. */
+	    combination. Basically a clean up. */
             interRes.deleteCharAt(interRes.length() - 1);
         }
     }
