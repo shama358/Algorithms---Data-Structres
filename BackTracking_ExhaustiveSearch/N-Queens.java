@@ -59,8 +59,8 @@ public class Solution {
     private boolean ValidBoard(char[][] board, int row, int col) {
         int diaRowL = row, diaColL = col;
         int diaRowR = row, diaColR = col;
-        //check row and col
         for (int i = 0; i < board.length; ++i) {
+			//check row and col
             if((i != col && board[row][i] == 'Q') || (i != row && 
 			    board[i][col] == 'Q')) {
                 return false;
