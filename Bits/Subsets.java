@@ -23,14 +23,14 @@ class Solution {
         if (nums.length == 0) {
             return result;
         }
-		/* the set has 2^nums.length subsets. this can be related to the bits of 
-		numbers between 0 and 2^nums.length. 0 being that the element is not 
-		there and 1 being element is there. */
+	/* the set has 2^nums.length subsets. this can be related to the bits of 
+	numbers between 0 and 2^nums.length. 0 being that the element is not 
+	there and 1 being element is there. */
         int possibilities = (int)Math.pow(2, nums.length);
         for (int i = 0; i < possibilities; ++i) {
             List<Integer> interRes = new ArrayList<Integer>();
             int n = i, idx = 0;
-			//right shift bits until n is zero
+	    //right shift bits until n is zero
             while (n != 0) {
                 if ((n & 1) == 1) {
                     interRes.add(nums[idx]);
