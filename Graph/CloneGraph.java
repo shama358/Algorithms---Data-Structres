@@ -32,8 +32,10 @@ Visually, the graph looks like the following:
  * class UndirectedGraphNode {
  *     int label;
  *     List<UndirectedGraphNode> neighbors;
- *     UndirectedGraphNode(int x) { label = x; neighbors = new 
-											ArrayList<UndirectedGraphNode>(); }
+ *     UndirectedGraphNode(int x) { 
+       label = x; 
+       neighbors = new ArrayList<UndirectedGraphNode>(); 
+       }
  * };
  */
 public class Solution {
