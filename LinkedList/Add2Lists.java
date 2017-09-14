@@ -21,6 +21,14 @@ Output: 7 -> 0 -> 8
  *     ListNode(int x) { val = x; }
  * }
  */
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
 public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         //early exit
@@ -36,38 +44,24 @@ public class Solution {
         int carry = 0, sum = 0;
         ListNode dummy = new ListNode(0);
         ListNode head = dummy;
-        /* when both l1 and l2 are not null */
-        while(l1 != null && l2 != null) {
+        //when neither l1 nor l2 is not null, and carry is not 0
+        while(l1 != null || l2 != null || carry != 0) {
             sum = 0;
             ListNode curr;
-            sum = carry + l2.val + l1.val;
+            int val1 = 0, val2 = 0;
+            if (l1 != null) {
+                val1 = l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                val2 = l2.val;
+                l2 = l2.next;
+            }
+            sum = carry + val1 + val2;
             curr = new ListNode((int)(sum % 10));
             carry = sum / 10;
             head.next = curr;
             head = curr;
-            l1 = l1.next;
-            l2 = l2.next;
-        }
-        sum = 0;
-        /*when l1 is null */
-        if (l1 == null && l2 != null) {
-            sum = carry + l2.val;
-            ListNode curr = new ListNode((int)(sum % 10));
-            head.next = curr;
-            curr.next = l2.next;
-            return dummy.next;
-        } else if (l2 == null && l1 != null) {  //l1 is null
-            sum = carry + l1.val;
-            ListNode curr = new ListNode((int)(sum % 10));
-            head.next = curr;
-            curr.next = l1.next;
-            return dummy.next;
-        } else {   //both are null but carry is not 0;
-            if (carry != 0) {
-                ListNode curr = new ListNode(carry);
-                head.next = curr;
-                head = curr;
-            }
         }
         return dummy.next;
     }
