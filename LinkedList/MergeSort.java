@@ -28,13 +28,15 @@ public class Solution {
             slow = slow.next;
         }
         ListNode node = slow.next;
-        slow.next = null; //dividing 1 list into 2 lists.
+        slow.next = null; 
+	//dividing 1 list into 2 lists.
         ListNode h1 = sortList(head);
         ListNode h2 = sortList(node);
         return merge(h1, h2);
     }
     private ListNode merge(ListNode h1, ListNode h2) {
-        ListNode dummy = new ListNode(0);  //dummy node to help with the merge.
+        ListNode dummy = new ListNode(0);  
+	//dummy node to help with the merge.
         ListNode curr = dummy;
         while (h1 != null && h2 != null) {
             if (h1.val < h2.val) {
@@ -53,7 +55,7 @@ public class Solution {
             curr.next = h1;
         }
         return dummy.next; 
-		//return the first node, i.e., smallest out of h1 and h2 lists.
+	//return the first node, i.e., smallest out of h1 and h2 lists.
         
     }
  

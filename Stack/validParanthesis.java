@@ -13,6 +13,7 @@ public class Solution {
         if (s.length() <= 1) {
             return false;
         }
+        //key -> closing bracket, value-> matching open bracket
         HashMap<Character, Character> map = new HashMap<Character, Character>();
         map.put (')', '(');
         map.put ('}', '{');
