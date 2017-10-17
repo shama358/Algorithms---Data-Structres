@@ -1,8 +1,11 @@
 ﻿/* Question:
 
-Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes 
+in the tree.
 
-According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is
+ defined between two nodes v and w as the lowest node in T that has both v and 
+ w as descendants (where we allow a node to be a descendant of itself).”
 
         _______3______
        /              \
@@ -11,7 +14,9 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
    6      _2       0       8
          /  \
          7   4
-For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another example is LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another 
+example is LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself
+ according to the LCA definition.
 
 */
 
@@ -27,19 +32,22 @@ For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another exa
  */
 
 public class Solution {
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
         return LCARec(root, p, q);
 
     }
     private TreeNode LCARec(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) { //early exit
+        //early exit
+		if (root == null) { 
             return null;
         }
         if (root == p || root == q) {
             return root;
         }
+		//check the left and right subtree for p,q
         TreeNode left = LCARec(root.left, p, q);
         TreeNode right = LCARec(root.right, p, q);
+		//return root if one is found in left subtree and other in right subtree
         if (left != null && right != null) {
             return root;
         } else if (left != null || right != null) {
@@ -50,5 +58,6 @@ public class Solution {
             }
         } else
             return null;
+		//if both p and q is not found in left and right subtree at that level.
     }
 }
