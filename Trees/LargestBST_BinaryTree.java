@@ -99,6 +99,7 @@ class BinaryTree {
 	        this.min = min;
 	        this.max = max;
 	        this.count = count;
+			maxC = 1;
 	    }
 	    MinMax(int min, int max, int count, int maxC) {
 	        this.min = min;
