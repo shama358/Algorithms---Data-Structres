@@ -11,7 +11,6 @@ class Node {
 
 	int data;
 	Node left, right;
-
 	Node(int d) {
 		data = d;
 		left = right = null;
@@ -26,9 +25,10 @@ class BinaryTree {
 	/* Returns size of the largest BST subtree in a Binary Tree
 	(efficient version). */
 	int largestBST(Node node) {
-
+		if (node == null) {
+			return 0;
+		}
 		MinMax ret = largestBSTUtil(node);
-
 		return ret.maxC;
 	}
 	private MinMax largestBSTUtil(Node node) {
@@ -54,19 +54,19 @@ class BinaryTree {
 	        }
 	    }
 	    //if left and right subtree are BST then return 
-		//					count = left.count + right.count + 1
+	    //					count = left.count + right.count + 1
 	    // if left or right subtree is not BST then the count will be reset to 0.
 	    if (left != null && right != null) {
 	        if (left.count != 0 && right.count != 0) {
 	            return new MinMax(Math.min(right.min, Math.min(left.min, 
-																	node.data)), 
+			node.data)), 
 	                Math.max(right.max, Math.max(left.max, node.data)), 
 	                left.count + right.count + 1, 
 	                Math.max(left.maxC, Math.max(right.maxC, left.count + 
-															right.count + 1)));
+			right.count + 1)));
 	        } else if (left.count == 0 && right.count == 0) {
 	           return new MinMax(Math.min(right.min, Math.min(left.min, 
-																node.data)),
+			node.data)),
 	                Math.max(right.max, Math.max(left.max, node.data)), 0,
 	                Math.max(left.maxC, right.maxC));
 	        } else if (left.count == 0) {
@@ -99,7 +99,7 @@ class BinaryTree {
 	        this.min = min;
 	        this.max = max;
 	        this.count = count;
-			maxC = 1;
+		maxC = 1;
 	    }
 	    MinMax(int min, int max, int count, int maxC) {
 	        this.min = min;
