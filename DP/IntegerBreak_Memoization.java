@@ -26,7 +26,7 @@ class Solution {
             return map.get(n);
         }
         int maxProduct = 0;
-        //alculate all possible combos from the start for each i 
+        //calculate all possible combos from the start for each i 
         for (int i = 1; i <= n; ++i) {
             //max can be either i * intBreak(n - i) OR simply i * (n - i)
             maxProduct = Math.max(i * intBreak(n - i, map), 
