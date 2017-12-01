@@ -1,6 +1,6 @@
 /* Question
 
-Given a set of ticekts, build an itenary list such that all the tickets are used.
+Given a set of ticekts, build an itinerary list such that all the tickets are used.
 
 */
 
