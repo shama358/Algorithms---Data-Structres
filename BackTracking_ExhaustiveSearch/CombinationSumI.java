@@ -25,9 +25,8 @@ public class Solution {
     private void comboSumRec(int[] candidates, int target, List<List<Integer>> 
 	result, int sum, int idx, ArrayList<Integer> interRes) {
         if (sum == target) {	
-        /* since java is pass by value, the ref of the interRes will be passed. 
-	So you create a new Object with the original interRes elements and add 
-	that to result. */
+        /* Since interRes is changed later on(after return), you need to capture
+			the current list */
             result.add(new ArrayList<Integer>(interRes));
             return;
         }
